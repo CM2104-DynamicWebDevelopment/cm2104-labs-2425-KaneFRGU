@@ -1,9 +1,18 @@
 var express = require('express');
 var app = express();
+
+var knockknock = require('knock-knock-jokes');
+
+var randomJoke = knockknock()
+
 app.get('/', function(req, res){
-    res.send("Hello World! from express");
+res.send("Hello World! from express");
 });
 app.get('/test', function(req, res){
     res.send("this is route 2");
 });
+app.get('/joke', function(req, res){
+    res.send(randomJoke());
+});
+
 app.listen(8080);

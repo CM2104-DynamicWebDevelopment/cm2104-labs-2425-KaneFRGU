@@ -12,7 +12,7 @@ app.get('/test', function(req, res){
     res.send("this is route 2");
 });
 app.get('/joke', function(req, res){
-    res.send(randomJoke());
+    res.send(randomJoke);
 });
 
 app.listen(8080);

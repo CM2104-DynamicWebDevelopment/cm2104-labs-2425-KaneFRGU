@@ -5,11 +5,7 @@ var knockknock = require('knock-knock-jokes');
 
 app.use(express.static('public'))
 
-app.get('/getform', function(req, res){
-    var name = req.query.name;
-    var quest = req.query.quest;
-     res.send("Hi "+name+" I am sure you will "+quest) ;
-    });
+
     
 
 app.get('/', function(req, res){
@@ -27,6 +23,12 @@ app.get('/add', function(req, res){
     var x = parseInt(req.query.x);
     var y = parseInt(req.query.y);
     res.send("X + Y="+(x+y));
+    });
+
+app.get('/getform', function(req, res){
+    var name = req.query.name;
+    var quest = req.query.quest;
+        res.send("Hi "+name+" I am sure you will "+quest) ;
     });
 
 app.listen(8080);

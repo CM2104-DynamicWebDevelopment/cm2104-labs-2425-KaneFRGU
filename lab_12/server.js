@@ -55,8 +55,8 @@ spotifyApi.searchTracks(searchterm)
   
    
 
+app.get('/searchLove', function (req, res) {
+    getTracks('love', res);
+})
 
-app.get('/', function(req, res){
-    res.send("Hello world! by express");
-});
 app.listen(8080);

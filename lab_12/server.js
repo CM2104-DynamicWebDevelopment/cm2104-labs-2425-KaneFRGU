@@ -2,6 +2,7 @@ var express = require('express');
 var app = express();
 var SpotifyWebApi = require('spotify-web-api-node')
 var searchterm = "love";
+app.use(express.static('public'))
 
 var spotifyApi = new SpotifyWebApi({
     clientId: '1e65070733a347318ee1b593b700a5f9',
@@ -61,7 +62,7 @@ spotifyApi.searchTracks(searchterm)
   
    
 
-app.use(express.static('public'))
+
 app.get('/', function(req, res){
     res.send("Hello world! by express");
 });

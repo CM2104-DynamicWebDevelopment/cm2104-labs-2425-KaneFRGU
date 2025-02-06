@@ -10,25 +10,25 @@ var spotifyApi = new SpotifyWebApi({
 // Retrieve an access token
 spotifyApi.clientCredentialsGrant().then( 
     function (data) {
-    console.log('The access token expires in ' + data.body['expires_in']);
-    console.log('The access token is ' + data.body['access_token']);
-    // Save the access token so that it's used in future calls
-    spotifyApi.setAccessToken(data.body['access_token']); 
+        console.log('The access token expires in ' + data.body['expires_in']);
+        console.log('The access token is ' + data.body['access_token']);
+        // Save the access token so that it's used in future calls
+        spotifyApi.setAccessToken(data.body['access_token']); 
     },
     function (err) {
-    console.log(
-    'Something went wrong when retrieving an access token',
-    err.message 
-    );
+        console.log(
+            'Something went wrong when retrieving an access token',
+            err.message 
+        );
     }
-   );
+);
 
 async function getTracks(searchterm, res) { 
     spotifyApi.searchTracks(searchterm)
     .then(function (data) {
-    res.send(JSON.stringify(data.body));
+        res.send(JSON.stringify(data.body));
     }, function (err) {
-    console.error(err);
+        console.error(err);
     }); 
    }
 
@@ -53,7 +53,7 @@ async function getTracks(searchterm, res) {
    }
    res.send(HTMLResponse)
    }, function (err) {
-   console.error(err);
+    console.error(err);
    });
   
    

@@ -27,14 +27,7 @@ spotifyApi.clientCredentialsGrant().then(
     }
 );
 
-async function getTracks(searchterm, res) { 
-    spotifyApi.searchTracks(searchterm)
-    .then(function (data) {
-        res.send(JSON.stringify(data.body));
-    }, function (err) {
-        console.error(err);
-    }); 
-}
+
 
 spotifyApi.searchTracks(searchterm)
    .then(function (data) {

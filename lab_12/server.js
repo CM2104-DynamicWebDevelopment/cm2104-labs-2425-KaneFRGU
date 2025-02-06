@@ -1,6 +1,7 @@
 var express = require('express');
 var app = express();
 var SpotifyWebApi = require('spotify-web-api-node')
+var searchterm = "love";
 
 var spotifyApi = new SpotifyWebApi({
     clientId: '1e65070733a347318ee1b593b700a5f9',
@@ -30,9 +31,9 @@ async function getTracks(searchterm, res) {
     }, function (err) {
         console.error(err);
     }); 
-   }
+}
 
-   spotifyApi.searchTracks(searchterm)
+spotifyApi.searchTracks(searchterm)
    .then(function (data) {
    var tracks = data.body.tracks.items 
    //lets set up a empty string to act as the response

@@ -7,6 +7,8 @@ const express = require('express');
 const app = express();
 //code to define the public 
 app.use(express.static('public'))
+app.use(express.urlencoded({extended:true}))
+
 var db;
 //run the connect method.
 connectDB();

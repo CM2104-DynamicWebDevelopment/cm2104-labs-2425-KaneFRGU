@@ -60,7 +60,7 @@ app.get('/update', function(req,res) {
 app.get('/all', function(req, res) {
   db.collection('quotes').find().toArray(function(err, result) {
     if (err) throw err;
-    res.render('index.ejs', { quotes: result });
+    res.render('index.ejs', { allquotes: result });
   });
 });
 

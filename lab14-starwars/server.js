@@ -40,7 +40,10 @@ async function connectDB() {
 //you need to complete these
 
 app.get('/', function(req,res) {
-  res.render('pages/index')
+  db.collection('quotes').find().toArray(function(err, result) {
+    if (err) throw err;
+    res.render('pages/index', { allquotes: result });
+  });
 });
 app.get('/add', function(req,res) {
 
@@ -55,14 +58,6 @@ app.get('/update', function(req,res) {
 
 });
 
-
-
-app.get('/index', function(req, res) {
-  db.collection('quotes').find().toArray(function(err, result) {
-    if (err) throw err;
-    res.render('index.ejs', { allquotes: result });
-  });
-});
 
 app.post('/quotes', function (req, res) {
   db.collection('quotes').save(req.body, function(err, result) {
